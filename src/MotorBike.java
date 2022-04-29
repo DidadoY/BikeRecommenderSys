@@ -50,4 +50,14 @@ public class MotorBike {
     public void setYear(int year) {
         this.year = year;
     }
+
+    // ===================================== Constructor ==================================================
+
+    public MotorBike(int id, String name, int year, int fuel, int price) {
+        this.id = id;
+        this.name = name;
+        this.year = year;
+        this.fuel = fuel;
+        this.price = price;
+    }
 }
