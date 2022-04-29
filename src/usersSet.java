@@ -2,7 +2,7 @@ import java.util.*;
 
 
 public class usersSet {
-    public HashMap<Integer, User> usersSet;
+    private HashMap<Integer, User> usersSet;
 
     public static usersSet instance;
 
@@ -36,7 +36,11 @@ public class usersSet {
                     u.addMoto(key);
                 }
             }
-            System.out.println("User " + i + ' ' + vM.size());
+            //System.out.println("User " + i + ' ' + vM.size());
         }
+    }
+
+    public HashMap<Integer, User> getUsersSet() {
+        return usersSet;
     }
 }

@@ -40,4 +40,8 @@ public class MotorBikeSet {
     public static int getYearDif() {
         return maxYear - minYear;
     }
+
+    public HashMap<Integer, MotorBike> getMBS() {
+        return motorBikeSet;
+    }
 }

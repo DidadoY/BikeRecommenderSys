@@ -70,4 +70,6 @@ public class MotorBike {
     public void printMotorBike() {
         System.out.println("Name: " + name + " BrandID: " + brandID + " Year: " + year + " Fuel: " + fuel + " Price: " + price);
     }
+
+
 }

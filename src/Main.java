@@ -5,9 +5,11 @@ public class Main {
     public static void main(String[] args) throws Exception {
        SqlReader sqLito = SqlReader.getInstance();
        sqLito.readData();
+       usersSet us = usersSet.getInstance();
+       us.createRandomUsers(20000);
+        KNN k = new KNN();
+        k.runKNN(3);
 
-       KNN k = new KNN();
-       k.runKNN(3);
 
         LinkedHashMap<Integer,Float> l = k.getSortedMap();
 
