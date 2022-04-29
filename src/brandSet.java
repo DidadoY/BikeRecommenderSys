@@ -18,7 +18,7 @@ public class brandSet {
     }
 
     public void printBrandSet(){
-        System.out.println("Imprimiendo todas las brands...");
+        System.out.println("Printing all brands...");
         for (Map.Entry<Integer, String> entry : brandSet.entrySet()) {
             System.out.println("ID: " + entry.getKey() + "  Name: " + entry.getValue());
         }
