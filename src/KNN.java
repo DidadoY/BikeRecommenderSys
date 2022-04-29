@@ -9,7 +9,6 @@ public class KNN {
 
     public KNN() {
         motorBikes = MotorBikeSet.getMotorBikes();
-
     }
     public void runKNN(int id) {
         this.id = id;
