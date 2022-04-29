@@ -7,14 +7,18 @@ import java.util.HashMap;
 
 
 public class SqlReader {
-    public static void main(String[] args) {
+
+    public static SqlReader instance;
+    brandSet bs = new brandSet();
+    MotorBikeSet mbs = new MotorBikeSet();
+    int maxYear = -1;
+    int minYear = -1;
+    float maxPrice = -1;
+    float minPrice = -1;
+
+    public void readData() {
         String cvsSplitBy = ",";
-        brandSet bs = new brandSet();
-        MotorBikeSet mbs = new MotorBikeSet();
-        int maxYear = -1;
-        int minYear = -1;
-        float maxPrice = -1;
-        float minPrice = -1;
+
         try {
             File myObj = new File("./data/init.sql");
             Scanner myReader = new Scanner(myObj);
@@ -68,5 +72,16 @@ public class SqlReader {
         mbs.SetMaxsMins(maxYear,minYear,maxPrice,minPrice);
         System.out.println("Prices: " + minPrice + ' ' + maxPrice);
         System.out.println("Years: " + minYear + ' ' + maxYear);
+    }
+
+    public static SqlReader getInstance() {
+        if(instance == null) {
+            instance = new SqlReader();
+        }
+        return instance;
+    }
+
+    public MotorBikeSet getMotorBikes() {
+        return mbs;
     }
 }
