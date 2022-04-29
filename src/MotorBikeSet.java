@@ -34,4 +34,8 @@ public class MotorBikeSet {
     public float getPriceDif() {
         return maxPrice - minPrice;
     }
+
+    public HashMap<Integer, MotorBike> getMBS() {
+        return motorBikeSet;
+    }
 }
