@@ -3,6 +3,7 @@
 public class MotorBike {
     private int id;
     private String name;
+    private int brandID;
     private int year;
     private int fuel;
     private int price;
@@ -53,9 +54,10 @@ public class MotorBike {
 
     // ===================================== Constructor ==================================================
 
-    public MotorBike(int id, String name, int year, int fuel, int price) {
+    public MotorBike(int id, String name, int brandID, int year, int fuel, int price) {
         this.id = id;
         this.name = name;
+        this.brandID = brandID;
         this.year = year;
         this.fuel = fuel;
         this.price = price;
