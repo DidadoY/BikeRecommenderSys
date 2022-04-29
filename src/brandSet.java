@@ -8,6 +8,10 @@ public class brandSet {
         this.brandSet = new HashMap<>();
     }
 
+    public void add(Integer id, String nombre){
+        brandSet.put(id, nombre);
+    }
+
     public String getName(Integer id){
         return brandSet.get(id);
     }
