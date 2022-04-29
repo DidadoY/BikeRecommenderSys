@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class KNN {
     private HashMap<Integer,MotorBike> motorBikes;
     private int id;
 
-    private ArrayList<Float> weights = new ArrayList<>();
+    private ArrayList<Float> weights = new ArrayList<Float>(List.<Float>of((float) 0.2, (float) 0.2, (float) 0.2, (float) 0.2, (float) 0.2));
 
     public KNN() {
         motorBikes = MotorBikeSet.getMotorBikes();
@@ -25,7 +26,9 @@ public class KNN {
     }
 
     private float calculateSimilarity(MotorBike mainMotorBike, MotorBike motorBike) {
-        mainMotorBike.getName();
+        float result = 0;
+        if(mainMotorBike.getName() == motorBike.getName()) result += weights.get(0);
+
     return 0;
     }
 

@@ -11,7 +11,7 @@ public class SqlReader {
         brandSet bs = new brandSet();
         MotorBikeSet mbs = new MotorBikeSet();
         try {
-            File myObj = new File("./Data/init.sql");
+            File myObj = new File("./data/init.sql");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();

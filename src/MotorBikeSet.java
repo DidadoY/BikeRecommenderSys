@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MotorBikeSet {
-    private static HashMap<Integer, MotorBike> motorBikeSet;
+    private static HashMap<Integer, MotorBike> motorBikeSet = new HashMap<>();
 
     public MotorBike getMotorBike(int id){
         return motorBikeSet.get(id);
