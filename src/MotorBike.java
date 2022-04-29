@@ -52,6 +52,10 @@ public class MotorBike {
         this.year = year;
     }
 
+    public int getBrandID() {
+        return brandID;
+    }
+
     // ===================================== Constructor ==================================================
 
     public MotorBike(int id, String name, int brandID, int year, int fuel, int price) {

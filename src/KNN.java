@@ -15,7 +15,9 @@ public class KNN {
 
     public float calculateSimilarity() {
         for(Integer key : motorBikes.keySet()) {
-            if(iMotorBike motorBike = motorBikes.get(key);
+            if(key != id) {
+                MotorBike motorBike = motorBikes.get(key);
+            }
         }
         return 0;
     }
