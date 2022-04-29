@@ -1,7 +1,7 @@
 
 import java.util.HashMap;
 
-public class brandSet<hashMap> {
+public class brandSet {
     public HashMap<Integer, String> brandSet;
 
     public brandSet(){
