@@ -6,4 +6,5 @@ public class MotorBikeSet {
     public MotorBike getMotorBike(int id){
         return motorBikeSet.get(id);
     }
+    public HashMap<Integer, MotorBike> getMotorBikes(){return motorBikeSet;}
 }
