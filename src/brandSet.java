@@ -1,5 +1,6 @@
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class brandSet {
     public HashMap<Integer, String> brandSet;
@@ -14,5 +15,13 @@ public class brandSet {
 
     public String getName(Integer id){
         return brandSet.get(id);
+    }
+
+    public void printBrandSet(){
+        System.out.println("Imprimiendo todas las brands...");
+        for (Map.Entry<Integer, String> entry : brandSet.entrySet()) {
+            System.out.println("ID: " + entry.getKey() + "  Name: " + entry.getValue());
+        }
+
     }
 }
