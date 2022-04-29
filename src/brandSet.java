@@ -8,7 +8,7 @@ public class brandSet {
         this.brandSet = new HashMap<>();
     }
 
-    public void add(Integer id, String nombre){
+    public void addBrand(Integer id, String nombre){
         brandSet.put(id, nombre);
     }
 
