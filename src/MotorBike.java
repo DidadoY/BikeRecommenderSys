@@ -66,4 +66,8 @@ public class MotorBike {
         this.fuel = fuel;
         this.price = price;
     }
+
+    public void printMotorBike() {
+        System.out.println("Name: " + name + " BrandID: " + brandID + " Year: " + year + " Fuel: " + fuel + " Price: " + price);
+    }
 }
