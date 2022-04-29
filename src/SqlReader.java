@@ -1,5 +1,6 @@
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Random;
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.HashMap;
 
@@ -10,6 +11,10 @@ public class SqlReader {
         String cvsSplitBy = ",";
         brandSet bs = new brandSet();
         MotorBikeSet mbs = new MotorBikeSet();
+        int maxYear = -1;
+        int minYear = -1;
+        float maxPrice = -1;
+        float minPrice = -1;
         try {
             File myObj = new File("./data/init.sql");
             Scanner myReader = new Scanner(myObj);
@@ -37,9 +42,17 @@ public class SqlReader {
                             int brand_id = Integer.parseInt(brandData[2]);
                             int year = Integer.parseInt(brandData[3]);
                             int fuel = Integer.parseInt(brandData[4]);
-                            int price = 2345242;//Integer.parseInt(brandData[5]);
-                            System.out.println(brandData[5]);
+                            float rangeMin = 0.0f;
+                            float rangeMax = 1.0f;
+                            Random r = new Random();
+                            float createdRanNum = (float) (rangeMin + (rangeMax - rangeMin) * r.nextDouble());
+                            float price = createdRanNum*9500+1500;//Integer.parseInt(brandData[5]);
                             mbs.addMotorBike(ID,name,brand_id,year,fuel,price);
+                            if(maxPrice == -1|| maxPrice < price) maxPrice = price;
+                            if(minPrice == -1 || minPrice > price) minPrice = price;
+                            if(maxYear == -1 || maxYear < year) maxYear = year;
+                            if(minYear == -1 || minYear > year) minYear = year;
+
                             //System.out.println(brand);
                         }
                     }
@@ -52,5 +65,8 @@ public class SqlReader {
         }
         bs.printBrandSet();
         mbs.printMotorBikeSet();
+        mbs.SetMaxsMins(maxYear,minYear,maxPrice,minPrice);
+        System.out.println("Prices: " + minPrice + ' ' + maxPrice);
+        System.out.println("Years: " + minYear + ' ' + maxYear);
     }
 }

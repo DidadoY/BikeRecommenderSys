@@ -8,7 +8,7 @@ public class usersSet {
         this.usersSet = new HashMap<>();
     }
 
-    public void addUser(Integer id, String nombre){
-        brandSet.put(id, nombre);
+    public void addUser(Integer id, User u){
+        usersSet.put(id, u);
     }
 }
