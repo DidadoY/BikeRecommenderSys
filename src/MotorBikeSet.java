@@ -3,8 +3,10 @@ import java.util.Map;
 
 public class MotorBikeSet {
     private static HashMap<Integer, MotorBike> motorBikeSet = new HashMap<>();
-    private float maxPrice, minPrice;
-    private int maxYear, minYear;
+    private static int maxYear;
+    private static int minYear;
+    private static float maxPrice;
+    private static float minPrice;
     public MotorBike getMotorBike(int id){
         return motorBikeSet.get(id);
     }
@@ -24,14 +26,18 @@ public class MotorBikeSet {
         }
     }
 
-    public void SetMaxsMins(int maxYear, int minYear, float maxPrice, float minPrice) {
+    public void SetMaxsMins(int maxYear,int minYear,float maxPrice,float minPrice) {
         this.maxYear = maxYear;
         this.minYear = minYear;
         this.maxPrice = maxPrice;
         this.minPrice = minPrice;
     }
 
-    public float getPriceDif() {
+    public static float getPriceDif() {
         return maxPrice - minPrice;
+    }
+
+    public static int getYearDif() {
+        return maxYear - minYear;
     }
 }
