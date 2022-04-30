@@ -26,7 +26,7 @@ public class GoogleSearch {
 
         //If google search results HTML change the <h3 class="r" to <h3 class="r1"
         //we need to change below accordingly
-        Elements results = doc.select("h3.r > a");
+        Elements results = doc.select("h3.r1 > a");
 
         for (Element result : results) {
             String linkHref = result.attr("href");
