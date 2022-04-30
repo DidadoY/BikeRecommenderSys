@@ -56,7 +56,7 @@ public class User {
         for(Integer i : mb) {
             u.addSimilarMoto(sqLillo.getMotorbike(i));
         }
-        //similarUsersMotorbikes.addAll(u.getMotorbikes());
+        similarUsersMotorbikes.addAll(u.getSimilarUsersMotorbikes());
 
     }
 

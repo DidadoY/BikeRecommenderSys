@@ -1,26 +1,26 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Set;
 
-public class mainWindow {
+public class suggestionView {
     HashMap<String,Integer> b = new HashMap<>();
     private static JFrame frame;
     private JPanel panel;
     private JList list1;
 
-    private int id;
+    private JButton menuButton;
 
-    private JButton suggestionsButton;
+    MotorBikeSet mbs;
 
     private JScrollPane scrollPane;
-    private JTextField a1TextField;
-
-    public mainWindow(HashMap<Integer, MotorBike> bikes, MotorBikeSet mbs) {
-        id = Integer.parseInt(a1TextField.getText());
-
+    public suggestionView(Set<MotorBike> bikes, MotorBikeSet mbs) {
+        this.mbs = mbs;
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
@@ -42,12 +42,11 @@ public class mainWindow {
         scrollPane.getHorizontalScrollBar().getComponent(1).setBackground(new Color(58,80,194));
 
         DefaultListModel demoList = new DefaultListModel();
-
-        for(Integer key : bikes.keySet()) {
+        for(MotorBike m : bikes) {
             String l = "";
-            l += mbs.getMotorBike(key).getName();
+            l += m.getName();
             demoList.addElement(l);
-            b.put(l,key);
+            b.put(l,m.getId());
         }
         list1.setModel(demoList);
         MouseListener mouseListener = new MouseAdapter() {
@@ -67,31 +66,12 @@ public class mainWindow {
                     ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs);
                     sh.showWindow(x,y);
 
-
-
                     frame.dispose();
                 }
             }
         };
         list1.addMouseListener(mouseListener);
-        suggestionsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                try {
-                    usersSet us = usersSet.getInstance();
-                    id = Integer.parseInt(a1TextField.getText());
-                    if(id >= 20000) id = 19999;
-                    Set<MotorBike> sm = us.calculateSimilarity(id);
-                    int x = frame.getX();
-                    int y = frame.getY();
-                    suggestionView sv = new suggestionView(sm,mbs);
-                    sv.showWindow(x,y);
-                    frame.dispose();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
 
     }
     public void showWindow(int x, int y) {

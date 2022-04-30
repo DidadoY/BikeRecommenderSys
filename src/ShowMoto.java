@@ -13,7 +13,7 @@ public class ShowMoto {
     private JPanel panel;
     private JList list1;
 
-    private JButton backButton;
+    private JButton menuButton;
 
     private JScrollPane scrollPane;
     public ShowMoto(LinkedHashMap<Integer, Float> bikes, MotorBikeSet mbs) {
