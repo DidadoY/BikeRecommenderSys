@@ -6,7 +6,7 @@ public class MotorBike {
     private int brandID;
     private int year;
     private int fuel;
-    private int price;
+    private float price;
 
     // =========================================== Getters ==================================================
     public int getFuel() {
@@ -21,7 +21,7 @@ public class MotorBike {
         return year;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
@@ -58,7 +58,7 @@ public class MotorBike {
 
     // ===================================== Constructor ==================================================
 
-    public MotorBike(int id, String name, int brandID, int year, int fuel, int price) {
+    public MotorBike(int id, String name, int brandID, int year, int fuel, float price) {
         this.id = id;
         this.name = name;
         this.brandID = brandID;

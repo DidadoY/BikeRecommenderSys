@@ -31,7 +31,7 @@ public class KNN {
         if(mainMotorBike.getBrandID() == motorBike.getBrandID()) result += weights.get(1);
         if(mainMotorBike.getFuel() == motorBike.getFuel()) result += weights.get(3);
         int yearDif = mainMotorBike.getYear() - motorBike.getYear();
-        int diference = motorBikes;
+        int diference = 0;
         result += diference - yearDif/diference * weights.get(2);
         int priceDif = mainMotorBike.getPrice() - motorBike.getPrice();
         result += diference - yearDif/diference * weights.get(4);
