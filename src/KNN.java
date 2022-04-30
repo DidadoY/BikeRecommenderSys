@@ -28,8 +28,15 @@ public class KNN {
     private float calculateSimilarity(MotorBike mainMotorBike, MotorBike motorBike) {
         float result = 0;
         if(mainMotorBike.getName() == motorBike.getName()) result += weights.get(0);
+        if(mainMotorBike.getBrandID() == motorBike.getBrandID()) result += weights.get(1);
+        if(mainMotorBike.getFuel() == motorBike.getFuel()) result += weights.get(3);
+        int yearDif = mainMotorBike.getYear() - motorBike.getYear();
+        int diference = motorBikes;
+        result += diference - yearDif/diference * weights.get(2);
+        int priceDif = mainMotorBike.getPrice() - motorBike.getPrice();
+        result += diference - yearDif/diference * weights.get(4);
 
-    return 0;
+        return result;
     }
 
 }
