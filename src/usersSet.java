@@ -25,7 +25,7 @@ public class usersSet {
     public Set<MotorBike> calculateSimilarity(int ID) {
         User u = usersSet.get(ID);
         HashMap<User, Float> similairties = new HashMap<>();
-        System.out.println(usersSet.size());
+        //System.out.println(usersSet.size());
         for(Integer key : usersSet.keySet()) {
             User u2 = usersSet.get(key);
             if(ID != u2.getID()) {

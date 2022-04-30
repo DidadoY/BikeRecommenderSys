@@ -45,7 +45,7 @@ public class User {
         int size = visitedMotorBikes.size();
         vMU.retainAll(visitedMotorBikes);
         int common = vMU.size();
-        System.out.println(common);
+        //System.out.println(common);
         return (float)common/(float)(sizeVU + size);
     }
 

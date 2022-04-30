@@ -31,9 +31,10 @@ public class Main {
         sqLito.readUsers(us);
 
         Set<MotorBike> sm = us.calculateSimilarity(23);
-        for(MotorBike m : sm) {
+        /*for(MotorBike m : sm) {
             System.out.println(m.getId());
         }
+        */
 
 
     }
