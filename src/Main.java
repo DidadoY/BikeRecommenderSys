@@ -3,12 +3,14 @@ import java.util.LinkedHashMap;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-       SqlReader sqLito = SqlReader.getInstance();
-       sqLito.readData();
-       usersSet us = usersSet.getInstance();
-       us.createRandomUsers(20000);
+        SqlReader sqLito = SqlReader.getInstance();
+        sqLito.readData();
+        usersSet us = usersSet.getInstance();
+        us.createRandomUsers(200);
+
         KNN k = new KNN();
         k.runKNN(3);
+
 
 
         LinkedHashMap<Integer,Float> l = k.getSortedMap();
@@ -22,5 +24,7 @@ public class Main {
             ++i;
         }
 
+        Kmeans km = Kmeans.getInstance();
+        km.runKmeans(10);
     }
 }

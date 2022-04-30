@@ -36,8 +36,9 @@ public class usersSet {
                     u.addMoto(key);
                 }
             }
-            //System.out.println("User " + i + ' ' + vM.size());
+            usersSet.put(i,u);
         }
+        System.out.println(usersSet.size());
     }
 
     public HashMap<Integer, User> getUsersSet() {
