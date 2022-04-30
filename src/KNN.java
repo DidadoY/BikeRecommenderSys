@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class KNN {
-    private HashMap<Integer,MotorBike> motorBikes;
+    private final HashMap<Integer,MotorBike> motorBikes;
     private int id;
 
-    private ArrayList<Float> weights = new ArrayList<Float>(List.<Float>of((float) 0.2, (float) 0.2, (float) 0.2, (float) 0.2, (float) 0.2));
+    private final ArrayList<Float> weights = new ArrayList<>(List.of((float) 0.2, (float) 0.2, (float) 0.2, (float) 0.2, (float) 0.2));
 
     public KNN() {
         motorBikes = MotorBikeSet.getMotorBikes();
@@ -27,7 +28,7 @@ public class KNN {
 
     private float calculateSimilarity(MotorBike mainMotorBike, MotorBike motorBike) {
         float result = 0;
-        if(mainMotorBike.getName() == motorBike.getName()) result += weights.get(0);
+        if(Objects.equals(mainMotorBike.getName(), motorBike.getName())) result += weights.get(0);
         if(mainMotorBike.getBrandID() == motorBike.getBrandID()) result += weights.get(1);
         if(mainMotorBike.getFuel() == motorBike.getFuel()) result += weights.get(3);
         int yearDif = mainMotorBike.getYear() - motorBike.getYear();
