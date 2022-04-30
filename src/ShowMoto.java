@@ -5,8 +5,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-public class mainWindow {
+public class ShowMoto {
     HashMap<String,Integer> b = new HashMap<>();
     private static JFrame frame;
     private JPanel panel;
@@ -15,7 +16,7 @@ public class mainWindow {
     private JButton backButton;
 
     private JScrollPane scrollPane;
-    public mainWindow(HashMap<Integer, MotorBike> bikes, MotorBikeSet mbs) {
+    public ShowMoto(LinkedHashMap<Integer, Float> bikes, MotorBikeSet mbs) {
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
@@ -61,8 +62,6 @@ public class mainWindow {
 
                     ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs);
                     sh.showWindow(x,y);
-
-
 
                     frame.dispose();
                 }

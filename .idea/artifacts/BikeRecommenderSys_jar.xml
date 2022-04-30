@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BikeRecommenderSys:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BikeRecommenderSys_jar</output-path>
+    <root id="archive" name="BikeRecommenderSys.jar">
+      <element id="module-output" name="BikeRecommenderSys" />
+    </root>
+  </artifact>
+</component>
