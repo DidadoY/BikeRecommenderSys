@@ -22,7 +22,7 @@ public class usersSet {
     }
 
 
-    public void calculateSimilarity(int ID) {
+    public Set<MotorBike> calculateSimilarity(int ID) {
         User u = usersSet.get(ID);
         HashMap<User, Float> similairties = new HashMap<>();
         System.out.println(usersSet.size());
@@ -39,10 +39,10 @@ public class usersSet {
         for(User u3 : sortedSimilarities.keySet()) {
             u.addSimilarUser(u3);
             ++count;
-            System.out.println(u3.getID() + "suususu " + sortedSimilarities.get(u3));
+            //System.out.println(u3.getID() + "suususu " + sortedSimilarities.get(u3));
             if(count > 10) break;
         }
-
+        return u.getSimilarUsersMotorbikes();
     }
 
 

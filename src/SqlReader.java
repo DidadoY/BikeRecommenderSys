@@ -81,6 +81,10 @@ public class SqlReader {
         return mbs;
     }
 
+    public MotorBike getMotorbike(int ID) {
+        return mbs.getMotorBike(ID);
+    }
+
     public void readUsers(usersSet us) {
         File myObj = new File("./data/users.txt");
         try {

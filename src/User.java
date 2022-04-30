@@ -8,6 +8,8 @@ public class User {
 
     private Set<User> similarUsers;
 
+    private Set<MotorBike> similarUsersMotorbikes;
+
     private int numCluster;
 
     public User(Integer ID, Set<Integer> visitedMotorBikes){
@@ -15,12 +17,16 @@ public class User {
         this.visitedMotorBikes = visitedMotorBikes;
         numCluster = -1;
         similarUsers = new HashSet<>();
+        similarUsersMotorbikes = new HashSet<>();
     }
 
     public User() {
 
     }
 
+    public Set<Integer> getMotorbikes() {
+        return visitedMotorBikes;
+    }
     public Integer getID() {
         return ID;
     }
@@ -45,10 +51,24 @@ public class User {
 
     public void addSimilarUser(User u) {
         similarUsers.add(u);
+        Set<Integer> mb = u.getMotorbikes();
+        SqlReader sqLillo = SqlReader.getInstance();
+        for(Integer i : mb) {
+            u.addSimilarMoto(sqLillo.getMotorbike(i));
+        }
+        //similarUsersMotorbikes.addAll(u.getMotorbikes());
+
     }
 
-    public void addSimilarUser(User u) {
-        similarUsers.add(u);
+    public void addSimilarMoto(MotorBike m) {
+        similarUsersMotorbikes.add(m);
     }
+
+    public Set<MotorBike> getSimilarUsersMotorbikes() {
+        return similarUsersMotorbikes;
+    }
+
+
+
 
 }
