@@ -1,4 +1,4 @@
-import java.io.IOException;
+/*import java.io.IOException;
 import java.util.Scanner;
 
 import org.jsoup.Jsoup;
@@ -34,4 +34,4 @@ public class GoogleSearch {
             System.out.println("Text::" + linkText + ", URL::" + linkHref.substring(6, linkHref.indexOf("&")));
         }
     }
-}
+}*/

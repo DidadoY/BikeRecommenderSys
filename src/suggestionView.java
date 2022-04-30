@@ -1,9 +1,7 @@
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -17,10 +15,11 @@ public class suggestionView {
     private JButton menuButton;
 
     MotorBikeSet mbs;
-
+    int id;
     private JScrollPane scrollPane;
-    public suggestionView(Set<MotorBike> bikes, MotorBikeSet mbs) {
+    public suggestionView(Set<MotorBike> bikes, MotorBikeSet mbs,int  id) {
         this.mbs = mbs;
+        this.id = id;
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
@@ -63,7 +62,7 @@ public class suggestionView {
 
                     k.runKNN(b.get(selectedItem));
 
-                    ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs);
+                    ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs, id);
                     sh.showWindow(x,y);
 
                     frame.dispose();
@@ -71,7 +70,22 @@ public class suggestionView {
             }
         };
         list1.addMouseListener(mouseListener);
+        menuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    usersSet us = usersSet.getInstance();
 
+                    int x = frame.getX();
+                    int y = frame.getY();
+                    mainWindow mW = new mainWindow(mbs.getMBS(), mbs);
+                    mW.showWindow(x,y);
+                    frame.dispose();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
     public void showWindow(int x, int y) {

@@ -63,8 +63,8 @@ public class SqlReader {
             //System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        bs.printBrandSet();
-        mbs.printMotorBikeSet();
+        //bs.printBrandSet();
+        //mbs.printMotorBikeSet();
         mbs.SetMaxsMins(maxYear,minYear,maxPrice,minPrice);
         //System.out.println("Prices: " + minPrice + ' ' + maxPrice);
         //System.out.println("Years: " + minYear + ' ' + maxYear);

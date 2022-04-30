@@ -60,11 +60,13 @@ public class mainWindow {
                     }
                     int x = frame.getX();
                     int y = frame.getY();
-                    KNN k = new KNN();
+                    usersSet us = usersSet.getInstance();
+                    us.getUser(id).addMoto(b.get(selectedItem));
 
+                    KNN k = new KNN();
                     k.runKNN(b.get(selectedItem));
 
-                    ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs);
+                    ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs, id);
                     sh.showWindow(x,y);
 
 
@@ -80,11 +82,11 @@ public class mainWindow {
                 try {
                     usersSet us = usersSet.getInstance();
                     id = Integer.parseInt(a1TextField.getText());
-                    if(id >= 20000) id = 19999;
+                    if(id >= 20000) id = 1;
                     Set<MotorBike> sm = us.calculateSimilarity(id);
                     int x = frame.getX();
                     int y = frame.getY();
-                    suggestionView sv = new suggestionView(sm,mbs);
+                    suggestionView sv = new suggestionView(sm,mbs, id);
                     sv.showWindow(x,y);
                     frame.dispose();
                 } catch (Exception e) {

@@ -17,6 +17,10 @@ public class usersSet {
         return instance;
     }
 
+    public User getUser(int ID) {
+        return usersSet.get(ID);
+    }
+
     public void addUser(Integer id, User u){
         usersSet.put(id, u);
     }

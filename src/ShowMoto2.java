@@ -4,18 +4,20 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Set;
 
-public class ShowMoto {
+public class ShowMoto2 {
     HashMap<String,Integer> b = new HashMap<>();
     private static JFrame frame;
     private JPanel panel;
     private JList list1;
 
+    int id;
+
     private JButton menuButton;
 
     private JScrollPane scrollPane;
-    public ShowMoto(LinkedHashMap<Integer, Float> bikes, MotorBikeSet mbs, int id) {
+    public ShowMoto2(LinkedHashMap<Integer, Float> bikes, MotorBikeSet mbs,int id) {
+        this.id = id;
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
@@ -56,11 +58,10 @@ public class ShowMoto {
                     int x = frame.getX();
                     int y = frame.getY();
                     KNN k = new KNN();
-                    usersSet us = usersSet.getInstance();
-                    us.getUser(id).addMoto(b.get(selectedItem));
+
                     k.runKNN(b.get(selectedItem));
 
-                    ShowMoto2 sh = new ShowMoto2(k.getSortedMap(),mbs, id);
+                    ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs, id);
                     sh.showWindow(x,y);
 
                     frame.dispose();
