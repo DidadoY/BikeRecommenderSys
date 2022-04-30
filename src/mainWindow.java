@@ -15,19 +15,19 @@ public class mainWindow {
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
-                this.thumbColor = new Color(134,114,62);
-                this.trackColor  = new Color(187,165,107);
+                this.trackColor = new Color(118,119,187);
+                this.thumbColor  = new Color(58,80,194);
             }
         });
         scrollPane.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
-                this.thumbColor = new Color(134,114,62);
-                this.trackColor  = new Color(187,165,107);
+                this.trackColor = new Color(118,119,187);
+                this.thumbColor  = new Color(58,80,194);
             }
         });
-        scrollPane.getVerticalScrollBar().getComponent(0).setBackground(new Color(134,114,62));
-        scrollPane.getVerticalScrollBar().getComponent(1).setBackground(new Color(134,114,62));
+        scrollPane.getVerticalScrollBar().getComponent(0).setBackground(new Color(118,119,187));
+        scrollPane.getVerticalScrollBar().getComponent(1).setBackground(new Color(58,80,194));
 
         DefaultListModel demoList = new DefaultListModel();
 
