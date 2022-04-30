@@ -23,8 +23,7 @@ public class Main {
             System.out.println("ID: " + key + " Sim: " + l.get(key));
             ++i;
         }
+        us.calculateSimilarity(23);
 
-        Kmeans km = Kmeans.getInstance();
-        km.runKmeans(10);
     }
 }

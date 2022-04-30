@@ -1,9 +1,12 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class User {
     private Integer ID;
     private Set<Integer> visitedMotorBikes;
+
+    private Set<User> similarUsers;
 
     private int numCluster;
 
@@ -11,6 +14,7 @@ public class User {
         this.ID = ID;
         this.visitedMotorBikes = visitedMotorBikes;
         numCluster = -1;
+        similarUsers = new HashSet<>();
     }
 
     public User() {
@@ -35,11 +39,16 @@ public class User {
         int size = visitedMotorBikes.size();
         vMU.retainAll(visitedMotorBikes);
         int common = vMU.size();
-        return common/(float)(sizeVU + size);
+        System.out.println(common);
+        return (float)common/(float)(sizeVU + size);
     }
 
     public void setNumCluster(int i) {
         numCluster = i;
+    }
+
+    public void addSimilarUser(User u) {
+        similarUsers.add(u);
     }
 
 }
