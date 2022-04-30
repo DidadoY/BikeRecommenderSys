@@ -1,7 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -15,7 +19,9 @@ public class ShowMoto {
     private JButton menuButton;
 
     private JScrollPane scrollPane;
-    public ShowMoto(LinkedHashMap<Integer, Float> bikes, MotorBikeSet mbs, int id) {
+    private JLabel label;
+
+    public ShowMoto(LinkedHashMap<Integer, Float> bikes, MotorBikeSet mbs, int id) throws IOException {
         scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
@@ -60,7 +66,12 @@ public class ShowMoto {
                     us.getUser(id).addMoto(b.get(selectedItem));
                     k.runKNN(b.get(selectedItem));
 
-                    ShowMoto2 sh = new ShowMoto2(k.getSortedMap(),mbs, id);
+                    ShowMoto2 sh = null;
+                    try {
+                        sh = new ShowMoto2(k.getSortedMap(),mbs, id);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     sh.showWindow(x,y);
 
                     frame.dispose();
@@ -84,6 +95,10 @@ public class ShowMoto {
                 }
             }
         });
+
+        BufferedImage image = ImageIO.read(new File("./data/kawasaki1.jpg"));
+
+        label.setIcon(new ImageIcon(image));
 
     }
     public void showWindow(int x, int y) {

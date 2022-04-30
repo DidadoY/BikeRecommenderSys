@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -66,7 +67,12 @@ public class mainWindow {
                     KNN k = new KNN();
                     k.runKNN(b.get(selectedItem));
 
-                    ShowMoto sh = new ShowMoto(k.getSortedMap(),mbs, id);
+                    ShowMoto sh = null;
+                    try {
+                        sh = new ShowMoto(k.getSortedMap(),mbs, id);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     sh.showWindow(x,y);
 
 
