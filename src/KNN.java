@@ -33,7 +33,7 @@ public class KNN {
         int yearDif = mainMotorBike.getYear() - motorBike.getYear();
         int diference = 0;
         result += diference - yearDif/diference * weights.get(2);
-        int priceDif = mainMotorBike.getPrice() - motorBike.getPrice();
+        float priceDif = mainMotorBike.getPrice() - motorBike.getPrice();
         result += diference - yearDif/diference * weights.get(4);
 
         return result;
