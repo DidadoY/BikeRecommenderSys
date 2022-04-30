@@ -1,13 +1,9 @@
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Random;
-import java.util.Scanner; // Import the Scanner class to read text files
-import java.util.HashMap;
-
+import java.util.*;
 
 
 public class SqlReader {
-
     public static SqlReader instance;
     brandSet bs = new brandSet();
     MotorBikeSet mbs = new MotorBikeSet();
@@ -83,5 +79,26 @@ public class SqlReader {
 
     public MotorBikeSet getMotorBikes() {
         return mbs;
+    }
+
+    public void readUsers(usersSet us) {
+        File myObj = new File("./data/users.txt");
+        try {
+            File o = new File("./data/users.txt");
+            Scanner myReader = new Scanner(o);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] a = data.split(":");
+                String[] b = a[1].split(",");
+                Set<Integer> visited = new HashSet<>();
+                for(String s: b) {
+                    visited.add(Integer.parseInt(s));
+                }
+                User u = new User(Integer.parseInt(a[0]), visited);
+                us.addUser(Integer.parseInt(a[0]),u);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

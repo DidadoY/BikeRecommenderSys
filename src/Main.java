@@ -23,8 +23,10 @@ public class Main {
             System.out.println("ID: " + key + " Sim: " + l.get(key));
             ++i;
         }
+        sqLito.readUsers(us);
 
-        Kmeans km = Kmeans.getInstance();
-        km.runKmeans(10);
+        us.calculateSimilarity(23);
+
+
     }
 }
