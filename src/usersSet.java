@@ -64,7 +64,7 @@ public class usersSet {
             ArrayList<Integer> visited = new ArrayList<>();
             for(Integer key : mbs.keySet()) {
                 float createdRanNum = (float) (rangeMin + (rangeMax - rangeMin) * r.nextDouble());
-                if(createdRanNum <= 0.005) {
+                if(createdRanNum <= 0.015) {
                     visited.add(key);
                 }
             }
