@@ -43,8 +43,8 @@ public class User {
         return (float)common/(float)(sizeVU + size);
     }
 
-    public void setNumCluster(int i) {
-        numCluster = i;
+    public void addSimilarUser(User u) {
+        similarUsers.add(u);
     }
 
     public void addSimilarUser(User u) {
