@@ -35,7 +35,7 @@ public class SqlReader {
                         dataAux = data.substring(0,20);
                         if(dataAux.equals("INSERT INTO versions")) {
                             data = data.substring(69,data.length()-2);
-                            System.out.println(data);
+                            //System.out.println(data);
                             String[] brandData = data.split(", ");
                             int ID = Integer.parseInt(brandData[0]);
                             String name = brandData[1];
@@ -60,14 +60,14 @@ public class SqlReader {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            //System.out.println("An error occurred.");
             e.printStackTrace();
         }
         bs.printBrandSet();
         mbs.printMotorBikeSet();
         mbs.SetMaxsMins(maxYear,minYear,maxPrice,minPrice);
-        System.out.println("Prices: " + minPrice + ' ' + maxPrice);
-        System.out.println("Years: " + minYear + ' ' + maxYear);
+        //System.out.println("Prices: " + minPrice + ' ' + maxPrice);
+        //System.out.println("Years: " + minYear + ' ' + maxYear);
     }
 
     public static SqlReader getInstance() {
